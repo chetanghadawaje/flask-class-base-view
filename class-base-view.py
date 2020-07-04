@@ -1,8 +1,11 @@
 from flask import Flask
 from flask.views import MethodView
+from decorators import DemoDecorator
 
 
 class ClassBaseAPI(MethodView):
+    decorators = [DemoDecorator]
+
     def get(self, id):
         print("GET -->", id)
         return {"GET": id}
